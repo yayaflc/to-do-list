@@ -6,45 +6,33 @@
     padding: 0;
     font-family: 'Nunito', sans-serif;
     box-sizing: border-box;
-    color: #fff3ec;
+    color: #272626;
 }
 
 h1 {
     font-family: 'Pacifico', cursive;
-    color: #fffffe;
 }
 
 .title-icon {
-    width: 4px;
+    width: 44px;
 }
 
 .container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #9656a1, #e78fb3);
+    background: linear-gradient(135deg, #55423d, #271c19);
     padding: 10px;
 }
 
 .todo-app {
     width: 100%;
     max-width: 540px;
-    background: #55423d;
+    background: #f7e3d9;
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
 }
 
-.todo-app h2{
-    color: #002765;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-.todo-app h2 img{
-    width: 30px;
-    margin-left: 10px;
-}
 .row{
     display: flex;
     align-items: center;
@@ -68,8 +56,8 @@ button{
     border: none;
     outline: none;
     padding: 16px 50px;
-    background: #ffc0ad;
-    color: #140d0b;
+    background: #e78fb3;
+    color: #fff;
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +32,7 @@ h1 {
     border-radius: 10px;
 }
 
-.row{
+.row {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,7 +42,7 @@ h1 {
     margin-bottom: 25px;
 }
 
-input{
+input {
     flex: 1;
     border: none;
     outline: none;
@@ -52,7 +51,7 @@ input{
     font-size: 16px;
 }
 
-button{    
+button {    
     border: none;
     outline: none;
     padding: 16px 50px;
@@ -63,7 +62,7 @@ button{
     border-radius: 40px;
 }
 
-ul li{
+ul li {
     list-style: none;
     font-size: 20px;
     padding: 16px 8px 12px 50px;
@@ -72,8 +71,8 @@ ul li{
     position: relative;  
     align-items: center;
   }
-    
-ul li::before{
+
+ul li::before {
     content: '';
     position: absolute;
     height: 28px;
@@ -85,14 +84,17 @@ ul li::before{
     top: 12px;
     left: 8px;
  }
- ul li.checked{
+
+ ul li.checked {
     color: #555;
     text-decoration: line-through;
  }
-ul li.checked::before{
+
+ul li.checked::before {
     background-image: url(images/checked.png)     
 }
-ul li span{
+
+ul li span {
     position: absolute;
     right: 0;
     top: 8px;
@@ -104,6 +106,7 @@ ul li span{
     text-align: center;    
     border-radius: 50%;
 }
-ul li span:hover{
+
+ul li span:hover {
     background: #edeef0;
 }

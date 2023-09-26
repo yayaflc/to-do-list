@@ -1,15 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap');
 
+:root {
+    
+}
+[data-theme="light"] {
+    --bg-color: linear-gradient(135deg, #c0988d, #633b30);
+    --card-color: #f7e3d9;
+    --row-color: #edeef0;
+    --btn-add-color: #e78fb3;
+    --btn-add-text-color: #fff;
+    --btn-function-color: #e78fb3;
+    --btn-function-text-color: #fff;
+    --hover-span-color: #edeef;
+    --tittle-color: #272727;
+    --delete-color: #272727;
+    --checked-color: #767575;
+    --text-color: #272727;
+
+    --btn-icon-theme: #000;
+    --btn-hover-icon: #ffffffcd;
+}
+
+[data-theme="dark"] {
+    --bg-color: linear-gradient(135deg, #55423d, #271c19);
+    --card-color: #6a5541;
+    --row-color: #edeef0;
+    --btn-add-color: #e78fb3;
+    --btn-add-text-color: #fff;
+    --btn-function-color: #e78fb3;
+    --btn-function-text-color: #fff;
+    --hover-span-color: #edeef;
+    --tittle-color: #f3f0f0;
+    --delete-color: #b3b1b1;
+
+    --checked-color:#b5b4b4;
+    --text-color:#fff;
+
+    --btn-icon-theme: #fff;
+    --btn-hover-icon: #4f4e4e8b;
+}
+
 * {
     margin: 0;
     padding: 0;
     font-family: 'Nunito', sans-serif;
     box-sizing: border-box;
-    color: #272626;
+}
+html {
+    background: var(--bg-color);
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 40px 0 0;
+    background-color: ;
+}
+
+.btn-theme {
+    border: none;
+    background: var(--btn-hover-icon);
+    border-radius: 50px;
+    cursor: pointer;
+    color: var(--btn-icon-theme);
+    font-size: 40px !important;
+    padding: 2px;
+    width: 50px;
+    height: 50px;
 }
 
 h1 {
     font-family: 'Pacifico', cursive;
+    color: var(--tittle-color);
 }
 
 .title-icon {
@@ -19,14 +81,16 @@ h1 {
 .container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #55423d, #271c19);
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .todo-app {
     width: 100%;
-    max-width: 540px;
-    background: #f7e3d9;
+    max-width: 520px;
+    background: var(--card-color);
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
@@ -36,7 +100,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #edeef0;
+    background: var(--row-color);
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
@@ -55,11 +119,29 @@ button {
     border: none;
     outline: none;
     padding: 16px 50px;
-    background: #e78fb3;
-    color: #fff;
+    background: var(--btn-add-color);
+    color: var(--btn-add-text-color);
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
+}
+
+.buttons{
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.function-button {
+    background: var(--btn-function-color);
+    color: var(--btn-function-text-color);
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 8px 30px;
 }
 
 ul li {
@@ -70,6 +152,14 @@ ul li {
     cursor: pointer; 
     position: relative;  
     align-items: center;
+    display: flex;
+    word-break: break-all;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    list-style-type: none; 
+    color: var(--text-color);
   }
 
 ul li::before {
@@ -81,12 +171,11 @@ ul li::before {
     background-image: url(images/unchecked.png) ;
     background-size: cover;
     background-position: center;
-    top: 12px;
     left: 8px;
  }
 
  ul li.checked {
-    color: #555;
+    color: var(--checked-color);
     text-decoration: line-through;
  }
 
@@ -95,18 +184,25 @@ ul li.checked::before {
 }
 
 ul li span {
-    position: absolute;
-    right: 0;
-    top: 8px;
     width: 40px;
     height: 40px;
+    min-width: 40px;
     font-size: 22px;
     color: #555;
     line-height: 40px;
-    text-align: center;    
+    text-align: center;  
     border-radius: 50%;
 }
 
 ul li span:hover {
-    background: #edeef0;
+    background: var(--hover-span-color);
+}
+ul li.checked .span {
+    text-decoration: none !important; 
+}
+
+.delete-icon {
+    padding-top:8px; 
+    cursor: pointer;
+    color: var(--delete-color);
 }

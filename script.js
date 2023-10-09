@@ -11,7 +11,7 @@ function addTask() {
         textSpan.className = "to-do-text"
         li.appendChild(textSpan)
         listContainer.appendChild(li);
-        
+
         let span = document.createElement("span");
         span.id = "deleteBtn";
         span.className = "material-symbols-outlined delete-icon";
@@ -96,23 +96,16 @@ loadTheme();
 
 function toggleTheme() {
     let currentThemeSetting = document.querySelector("html").getAttribute("data-theme");
-    var icon = document.querySelector("[data-theme-toggle]");
 
     if (currentThemeSetting === "dark") {
         document.querySelector("html").setAttribute("data-theme", "light");
         currentThemeSetting = "light";
         icon.innerText = "light_mode";
 
-        const logo = document.querySelector(".logo");
-        logo.src = "assets/images/logo_dark.png";
-
         localStorage.setItem("theme", "light");
     } else {
         document.querySelector("html").setAttribute("data-theme", "dark");
         icon.innerText = "dark_mode";
-
-        const logo = document.querySelector(".logo");
-        logo.src = "assets/images/logo_light.png";
 
         localStorage.setItem("theme", "dark");
     }
@@ -122,6 +115,7 @@ function loadTheme() {
     let SystemThemeSetting = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     let currentThemeSetting = localStorage.getItem("theme");
+    
 
     if (currentThemeSetting === "dark" || (SystemThemeSetting === true && currentThemeSetting === null)) {
         newTheme = "dark";

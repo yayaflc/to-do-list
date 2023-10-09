@@ -2,13 +2,18 @@ const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
 function addTask() {
-    if(inputBox.value === '') {
+    if (inputBox.value === '') {
         alert("Digite algo antes de adicionar");
-    } else{
+    } else {
         let li = document.createElement("li");
-        li.innerHTML = inputBox.value
+        let textSpan = document.createElement("span")
+        textSpan.textContent = inputBox.value
+        textSpan.className = "to-do-text"
+        li.appendChild(textSpan)
         listContainer.appendChild(li);
+        
         let span = document.createElement("span");
+        span.id = "deleteBtn";
         span.className = "material-symbols-outlined delete-icon";
         span.textContent = "delete";
         li.appendChild(span);
@@ -18,36 +23,39 @@ function addTask() {
     saveData();
 }
 
-listContainer.addEventListener("click", function(e) {
+listContainer.addEventListener("click", function (e) {
     if (e.target.tagName === "LI") {
         if (e.target === e.target.parentNode.querySelector("span")) {
-            return; 
+            return;
         }
         e.target.classList.toggle("checked");
         saveData();
-    } else if (e.target.tagName === "SPAN") {
+    } else if (e.target.id === "deleteBtn") {
         e.target.parentElement.remove();
         saveData();
     }
 }, false);
+
 function saveData() {
-    localStorage.setItem("data-todo", listContainer.innerHTML);
+    localStorage.setItem("data-to-do", listContainer.innerHTML);
 }
 
 function getData() {
-    listContainer.innerHTML = localStorage.getItem("data-todo")
+    listContainer.innerHTML = localStorage.getItem("data-to-do")
 }
 
 getData();
+
+// filter buttons
 
 function showCheckedTasks() {
     const listItems = listContainer.querySelectorAll("li");
 
     listItems.forEach((item) => {
         if (item.classList.contains("checked")) {
-            item.style.display = "flex"; // Mostrar tarefas marcadas
+            item.style.display = "flex";
         } else {
-            item.style.display = "none"; // Ocultar tarefas não marcadas
+            item.style.display = "none";
         }
     });
 }
@@ -56,7 +64,7 @@ function showAllTasks() {
     const listItems = listContainer.querySelectorAll("li");
 
     listItems.forEach((item) => {
-        item.style.display = "flex"; // Mostrar todas as tarefas
+        item.style.display = "flex";
     });
 }
 
@@ -65,15 +73,17 @@ function showUncheckedTasks() {
 
     listItems.forEach((item) => {
         if (!item.classList.contains("checked")) {
-            item.style.display = "flex"; // Mostrar tarefas não marcadas
+            item.style.display = "flex";
         } else {
-            item.style.display = "none"; // Ocultar tarefas marcadas
+            item.style.display = "none";
         }
     });
 }
 
-document.addEventListener("keypress", function(e) {
-    if(e.key === 'Enter') {
+// enter keypress
+
+document.addEventListener("keypress", function (e) {
+    if (e.key === 'Enter') {
         const button = document.querySelector("#send");
         button.click();
     }
@@ -108,19 +118,19 @@ function toggleTheme() {
     }
 }
 
-function loadTheme () {
+function loadTheme() {
     let SystemThemeSetting = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
-    let currentThemeSetting = localStorage.getItem("theme");         
-    
-    if(currentThemeSetting === "dark" || (SystemThemeSetting === true && currentThemeSetting === null)) {
+
+    let currentThemeSetting = localStorage.getItem("theme");
+
+    if (currentThemeSetting === "dark" || (SystemThemeSetting === true && currentThemeSetting === null)) {
         newTheme = "dark";
         changeIcon = "dark_mode";
     } else {
         newTheme = "light";
         changeIcon = "light_mode";
     }
-    
+
     icon.innerText = changeIcon;
     document.querySelector("html").setAttribute("data-theme", newTheme);
 }

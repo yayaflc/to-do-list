@@ -1,51 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap');
 
 :root {
-    
+    --nunito: 'Nunito', sans-serif;
+    --pacifico: 'Pacifico', cursive;
 }
-[data-theme="light"] {
-    --bg-color: linear-gradient(135deg, #c0988d, #633b30);
-    --card-color: #f7e3d9;
-    --row-color: #edeef0;
-    --btn-add-color: #e78fb3;
-    --btn-add-text-color: #fff;
-    --btn-function-color: #e78fb3;
-    --btn-function-text-color: #fff;
-    --hover-span-color: #edeef;
-    --tittle-color: #272727;
-    --delete-color: #272727;
-    --checked-color: #767575;
-    --text-color: #272727;
 
-    --btn-icon-theme: #000;
-    --btn-hover-icon: #ffffffcd;
+[data-theme="light"] {
+    --bg-color: #caf1f6;
+    --card-color: #f2fafb;
+    --tittle-color: #0d3c48;
+    --text-color: #0d3c48;
+    --row-color: #fff;
+
+
+    --btn-add-color: #00a2c7;
+    --btn-add-text-color: #fff;
+
+    --btn-function-color: #caf1f6;
+    --btn-function-text-color: #4ea5b9;
+
+    --delete-color: #0d3c48;
+    --delete-hover-color: #caf1f6;
+
+    --checked-color: #767575;
+
+    --scrollbar-color: #9ddde7;
+    --scrollbar-second-color: #F5F5F5;
+
+    --btn-icon-theme: #0d3c48;
+    --btn-hover-icon: #f2fafb;
 }
 
 [data-theme="dark"] {
-    --bg-color: linear-gradient(135deg, #55423d, #271c19);
-    --card-color: #6a5541;
-    --row-color: #edeef0;
-    --btn-add-color: #e78fb3;
-    --btn-add-text-color: #fff;
-    --btn-function-color: #e78fb3;
-    --btn-function-text-color: #fff;
-    --hover-span-color: #edeef;
+    --bg-color: #0b161a;
+    --card-color: #003848;
     --tittle-color: #f3f0f0;
-    --delete-color: #b3b1b1;
+    --text-color: #f3f0f0;
+    --row-color: #edeef0;
 
-    --checked-color:#b5b4b4;
-    --text-color:#fff;
+    --btn-add-color: #00a2c7;
+    --btn-add-text-color: #fff;
+
+    --btn-function-color: #004558;
+    --btn-function-text-color: #b6ecf7;
+
+    --delete-color: #d0cfcf;
+    --delete-hover-color: #004558;
+
+    --checked-color: #b5b4b4;
+
+    --scrollbar-color: #082c36;
+    --scrollbar-second-color: #c3c3c3;
 
     --btn-icon-theme: #fff;
-    --btn-hover-icon: #4f4e4e8b;
+    --btn-hover-icon: #082c36;
 }
 
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--nunito);
     box-sizing: border-box;
 }
+
 html {
     background: var(--bg-color);
 }
@@ -54,7 +71,6 @@ header {
     display: flex;
     justify-content: flex-end;
     padding: 20px 40px 0 0;
-    background-color: ;
 }
 
 .btn-theme {
@@ -70,30 +86,30 @@ header {
 }
 
 h1 {
-    font-family: 'Pacifico', cursive;
+    font-family: var(--pacifico);
     color: var(--tittle-color);
+    font-size: 40px;
 }
 
-.title-icon {
-    width: 44px;
+.tittle-icon {
+    width: 54px;
 }
 
 .container {
-    width: 100%;
-    min-height: 100vh;
-    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.todo-app {
+.to-do-app {
     width: 100%;
     max-width: 520px;
+    height: 630px;
     background: var(--card-color);
     margin: 100px auto 20px;
-    padding: 40px 30px 70px;
+    padding: 34px 40px 70px;
     border-radius: 10px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 .row {
@@ -101,9 +117,11 @@ h1 {
     align-items: center;
     justify-content: space-between;
     background: var(--row-color);
-    border-radius: 30px;
+    border-radius: 20px;
     padding-left: 20px;
+    margin-top: 10px;
     margin-bottom: 25px;
+    height: 52px;
 }
 
 input {
@@ -115,25 +133,26 @@ input {
     font-size: 16px;
 }
 
-button {    
+.add-btn {
     border: none;
     outline: none;
-    padding: 16px 50px;
+    padding: 16px 40px;
     background: var(--btn-add-color);
     color: var(--btn-add-text-color);
     font-size: 16px;
     cursor: pointer;
-    border-radius: 40px;
+    border-radius: 20px;
+    height: 100%;
 }
 
-.buttons{
+.buttons {
     width: 100%;
-    max-width: 520px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 25px;
 }
 
-.function-button {
+.function-btn {
     background: var(--btn-function-color);
     color: var(--btn-function-text-color);
     font-size: 16px;
@@ -142,45 +161,33 @@ button {
     border: none;
     outline: none;
     padding: 8px 30px;
+    width: 30%;
+}
+
+.to-do-text {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
+
+ul {
+    overflow: auto;
+    margin: 10px;
+    height: 350px;
 }
 
 ul li {
+    display: flex;
     list-style: none;
     font-size: 20px;
-    padding: 16px 8px 12px 50px;
+    padding: 12px 8px 12px 50px;
     user-select: none;
-    cursor: pointer; 
-    position: relative;  
-    align-items: center;
-    display: flex;
+    cursor: pointer;
+    position: relative;
     word-break: break-all;
     justify-content: space-between;
-    display: flex;
-    align-items: center;
     gap: 2px;
-    list-style-type: none; 
-    color: var(--text-color);
-  }
-
-ul li::before {
-    content: '';
-    position: absolute;
-    height: 28px;
-    width: 28px;
-    border-radius: 50%;
-    background-image: url(images/unchecked.png) ;
-    background-size: cover;
-    background-position: center;
-    left: 8px;
- }
-
- ul li.checked {
-    color: var(--checked-color);
-    text-decoration: line-through;
- }
-
-ul li.checked::before {
-    background-image: url(images/checked.png)     
+    list-style-type: none;
 }
 
 ul li span {
@@ -188,21 +195,116 @@ ul li span {
     height: 40px;
     min-width: 40px;
     font-size: 22px;
-    color: #555;
+    color: var(--text-color);
     line-height: 40px;
-    text-align: center;  
+    text-align: center;
     border-radius: 50%;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    left: 8px;
+    margin-top: 8px;
+}
+
+ul li.checked .to-do-text {
+    color: var(--checked-color);
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url(images/checked.png)
 }
 
 ul li span:hover {
     background: var(--hover-span-color);
 }
+
 ul li.checked .span {
-    text-decoration: none !important; 
+    text-decoration: none !important;
+}
+
+ul::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.200);
+    background-color: var(--scrollbar-second-color);
+}
+
+ul::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
 }
 
 .delete-icon {
-    padding-top:8px; 
+    padding-top: 8px;
     cursor: pointer;
     color: var(--delete-color);
+}
+
+#deleteBtn:hover {
+    background-color: var(--delete-hover-color);
+}
+
+@media (max-width: 540px) {
+    .todo-app {
+        max-width: 380px;
+        margin: 60px auto 10px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .tittle-icon {
+        width: 40px;
+    }
+
+    .row {
+        height: 40px;
+        padding-left: 8px;
+        border-radius: 14px;
+    }
+
+    .add-btn {
+        border-radius: 14px;
+        padding: 6px 8px;
+    }
+
+    .function-btn {
+        padding: 8px 0px;
+        font-size: 14px;
+    }
+
+    ul li {
+        padding: 8px 6px 6px 50px;
+    }
+
+    ul li span {
+        font-size: 16px;
+    }
+
+    ul li::before {
+        width: 22px;
+        height: 22px;
+    }
+
+    #deleteBtn {
+        font-size: 20px;
+    }
+
+    .btn-theme {
+        font-size: 30px !important;
+        width: 40px;
+        height: 40px;
+    }
 }
